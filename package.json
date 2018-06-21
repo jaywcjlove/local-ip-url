@@ -1,0 +1,12 @@
+{
+  "name": "local-ip-url",
+  "version": "1.0.0",
+  "description": "Get current machine IP.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
