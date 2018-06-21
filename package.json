@@ -6,7 +6,19 @@
   "scripts": {
     "test": "node test/index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-doc/local-ip-url.git"
+  },
+  "keywords": [
+    "ip",
+    "address",
+    "ipv4",
+    "ipv4-network",
+    "ipv6-network",
+    "ipv6",
+    "mac"
+  ],
   "author": "",
   "license": "MIT"
 }
