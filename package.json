@@ -1,6 +1,6 @@
 {
   "name": "local-ip-url",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get current machine IP.",
   "main": "index.js",
   "scripts": {
