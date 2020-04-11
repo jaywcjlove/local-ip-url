@@ -12,7 +12,9 @@
   },
   "files": [
     "index.js",
-    "prepareUrls.js"
+    "index.d.ts",
+    "prepareUrls.js",
+    "prepareUrls.d.ts"
   ],
   "keywords": [
     "ip",
