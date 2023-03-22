@@ -24,7 +24,7 @@ jobs:
         with:
           style: flat
           source: coverage/coverage-summary.json
-          output: coverage/badges.svg
+          output: dist/badges.svg
           
       - run: cp -rp coverage/lcov-report dist
 
