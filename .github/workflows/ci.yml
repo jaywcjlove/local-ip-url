@@ -1,68 +1,44 @@
-name: Build & Deploy
+name: CI
 on:
   push:
     branches:
       - master
 
 jobs:
-  build-deploy:
+  ubuntu:
+    name: Ubuntu Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 18
+          - 16
+          - 14
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
+          node-version: ${{ matrix.node-version }}
 
+      - run: npm install
       - run: npm run test
-      - run: npm install idoc@1.25.0 -g
-      - run: idoc -s "Local IP URL {{version}}"
 
-      - name: Deploy Website
-        uses: peaceiris/actions-gh-pages@v3
+  windows: 
+    name: Windows Node.js
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 18
+          - 16
+          - 14
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: ${{ github.event.head_commit.message }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          node-version: ${{ matrix.node-version }}
 
-      - name: Is a tag created auto?
-        id: create_tag
-        uses: jaywcjlove/create-tag-action@main
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-  
-      - name: Generate Changelog
-        id: changelog
-        uses: jaywcjlove/changelog-generator@main
-        if: steps.create_tag.outputs.successful
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          head-ref: ${{ steps.create_tag.outputs.version }}
-          filter-author: (小弟调调™|Renovate Bot|renovate-bot)
-          filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-
-      - run: npm publish --access public
-        continue-on-error: true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        if: steps.create_tag.outputs.successful
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ steps.create_tag.outputs.version }}
-          tag: ${{ steps.create_tag.outputs.version }}
-          body: |
-            [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/local-ip-url@${{steps.create_tag.outputs.versionNumber}}/file/README.md)
-            
-            Documentation ${{ steps.changelog.outputs.tag }}: https://raw.githack.com/jaywcjlove/local-ip-url/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html  
-
-            ```bash
-            npm i local-ip-url@${{steps.create_tag.outputs.versionNumber}}
-            ```
-            ${{ steps.changelog.outputs.compareurl }}
-            
-            ${{ steps.changelog.outputs.changelog }}
+      - run: npm install
+      - run: npm run test
