@@ -1,14 +1,15 @@
 {
   "name": "local-ip-url",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get current machine IP.",
   "main": "index.js",
+  "homepage": "https://jaywcjlove.github.io/local-ip-url",
   "scripts": {
     "test": "node test/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-doc/local-ip-url.git"
+    "url": "https://github.com/jaywcjlove/local-ip-url.git"
   },
   "files": [
     "index.js",
