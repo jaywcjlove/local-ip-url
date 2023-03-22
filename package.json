@@ -3,9 +3,11 @@
   "version": "1.0.5",
   "description": "Get current machine IP.",
   "main": "index.js",
+  "author": "kenny wong <wowohoo@qq.com>",
+  "license": "MIT",
   "homepage": "https://jaywcjlove.github.io/local-ip-url",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "ipv6",
     "mac"
   ],
-  "author": "",
-  "license": "MIT"
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }
