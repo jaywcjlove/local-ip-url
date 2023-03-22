@@ -15,7 +15,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
-      - run: npm run test
+      - run: npm run coverage
       - run: npm install idoc@1.25.0 -g
       - run: idoc -s "Local IP URL {{version}}"
       
