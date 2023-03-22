@@ -18,6 +18,15 @@ jobs:
       - run: npm run test
       - run: npm install idoc@1.25.0 -g
       - run: idoc -s "Local IP URL {{version}}"
+      
+      - name: Create Coverage Badges
+        uses: jaywcjlove/coverage-badges-cli@main
+        with:
+          style: flat
+          source: coverage/coverage-summary.json
+          output: coverage/badges.svg
+          
+      - run: cp -rp coverage/lcov-report dist
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3
