@@ -1,14 +1,15 @@
-
-export interface Option {
+interface Option {
   protocol?: string;
   host?: string;
   port?: string | number;
 }
 
-export interface Result {
+interface Result {
   ip: string;
   localUrl: string;
   lanUrl: string;
 }
 
-export default function(option: Option): Result;
+declare function prepareUrls(option: Option): Result;
+
+export = prepareUrls;
