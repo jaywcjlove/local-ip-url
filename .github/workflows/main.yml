@@ -16,7 +16,7 @@ jobs:
 
       - run: npm install
       - run: npm run coverage
-      - run: npm install idoc@1.25.0 -g
+      - run: npm install idoc@1.26.6 -g
       - run: idoc -s "Local IP URL {{version}}"
       
       - name: Create Coverage Badges
