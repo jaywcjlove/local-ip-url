@@ -55,6 +55,11 @@ jobs:
           filter-author: (小弟调调™|Renovate Bot|renovate-bot)
           filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
+      - name: package.json info
+        uses: jaywcjlove/github-action-package@main
+        with:
+          unset: scripts,jest,devDependencies
+
       - run: npm publish --access public --provenance
         continue-on-error: true
         env:
