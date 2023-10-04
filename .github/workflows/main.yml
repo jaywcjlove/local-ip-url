@@ -25,7 +25,6 @@ jobs:
       - name: Create Coverage Badges
         uses: jaywcjlove/coverage-badges-cli@main
         with:
-          style: flat
           source: coverage/coverage-summary.json
           output: dist/badges.svg
           
