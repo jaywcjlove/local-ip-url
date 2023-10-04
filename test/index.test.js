@@ -1,3 +1,4 @@
+const os = require('os');
 const localIpUrl = require('..');
 const prepareUrls = require('../prepareUrls');
 
@@ -55,3 +56,55 @@ it('test case: localIpUrl("private", "ipv6") => fe80::1', () => {
   expect(/^http:\/\/localhost:3000\//.test(data.localUrl)).toBeTruthy()
   expect(/^(?:https?:\/\/)?([\w.-]+)(?::(\d+))?\/?/i.test(data.localUrl)).toBeTruthy()
 })
+
+describe('localIpUrl', () => {
+  const mockNetworkInterfaces = {
+    eth0: [
+      { family: 'IPv4', address: '192.168.0.10' },
+      { family: 'IPv6', address: 'fe80::1' },
+    ],
+    wlan0: [
+      { family: 'IPv4', address: '192.168.1.10' },
+      { family: 'IPv6', address: '::1' },
+    ],
+  };
+
+  beforeEach(() => {
+    jest.spyOn(os, 'networkInterfaces').mockReturnValue(mockNetworkInterfaces);
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should return default IPv4 loopback address when no name and family are provided', () => {
+    const result = localIpUrl();
+    expect(result).toBe('192.168.0.10');
+  });
+
+  it('should return IPv4 address of the specified network interface', () => {
+    const result = localIpUrl('eth0');
+    expect(result).toBe('192.168.0.10');
+  });
+
+  it('should return IPv6 address of the specified network interface', () => {
+    const result = localIpUrl('wlan0', 'ipv6');
+    expect(result).toBe('::1');
+  });
+
+  it('should return the first public IPv4 address', () => {
+    const result = localIpUrl('public');
+    expect(result).toBe('192.168.0.10');
+  });
+
+  it('should return the first private IPv6 address', () => {
+    const result = localIpUrl('private', 'ipv6');
+    expect(result).toBe('fe80::1');
+  });
+
+  it('should throw an error when an invalid family is provided', () => {
+    expect(() => {
+      localIpUrl('private', 'invalid');
+    }).toThrow('family must be ipv4 or ipv6');
+  });
+});
