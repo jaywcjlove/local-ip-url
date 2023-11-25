@@ -1,6 +1,7 @@
 local-ip-url
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
 ![](http://jaywcjlove.github.io/sb/status/no-dependencies.svg)
 [![Coverage Status](https://jaywcjlove.github.io/local-ip-url/badges.svg)](https://jaywcjlove.github.io/local-ip-url/lcov-report/)
 [![](https://img.shields.io/github/forks/react-doc/local-ip-url.svg)](https://github.com/react-doc/local-ip-url/network)
