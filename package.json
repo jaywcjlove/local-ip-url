@@ -6,6 +6,7 @@
   "author": "kenny wong <wowohoo@qq.com>",
   "license": "MIT",
   "homepage": "https://jaywcjlove.github.io/local-ip-url",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage"
