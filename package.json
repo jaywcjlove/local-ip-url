@@ -1,6 +1,6 @@
 {
   "name": "local-ip-url",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Get current machine IP.",
   "main": "index.js",
   "author": "kenny wong <wowohoo@qq.com>",
