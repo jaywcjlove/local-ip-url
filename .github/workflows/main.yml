@@ -24,8 +24,13 @@ jobs:
           cat > idoc.yml << EOF
           site: "Local IP URL {{version}}"
           tocs: false
+          element: 
+            wrapper: style=max-width: 650px;
           menus:
             Home: index.html
+            About: 
+              url: https://wangchujiang.com/#/about
+              target: __blank
             Sponsor: 
               url: https://jaywcjlove.github.io/#/sponsor
               target: __blank
