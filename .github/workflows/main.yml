@@ -23,6 +23,7 @@ jobs:
         run: |
           cat > idoc.yml << EOF
           site: "Local IP URL {{version}}"
+          tocs: false
           menus:
             Home: index.html
             Sponsor: 
