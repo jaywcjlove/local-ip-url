@@ -43,9 +43,9 @@ local-ip-url
 [![Follow On X](https://img.shields.io/badge/Follow%20on%20X-333333?logo=x&logoColor=white)](https://x.com/jaywcjlove)
 ![](http://jaywcjlove.github.io/sb/status/no-dependencies.svg)
 [![Coverage Status](https://jaywcjlove.github.io/local-ip-url/badges.svg)](https://jaywcjlove.github.io/local-ip-url/lcov-report/)
-[![](https://img.shields.io/github/forks/react-doc/local-ip-url.svg)](https://github.com/react-doc/local-ip-url/network)
-[![](https://img.shields.io/github/stars/react-doc/local-ip-url.svg)](https://github.com/react-doc/local-ip-url/stargazers)
-[![](https://img.shields.io/github/release/react-doc/local-ip-url.svg)](https://github.com/react-doc/local-ip-url/releases)
+[![](https://img.shields.io/github/forks/react-doc/local-ip-url.svg?style=flat)](https://github.com/react-doc/local-ip-url/network)
+[![](https://img.shields.io/github/stars/react-doc/local-ip-url.svg?style=flat)](https://github.com/react-doc/local-ip-url/stargazers)
+[![](https://img.shields.io/github/release/react-doc/local-ip-url.svg?style=flat)](https://github.com/react-doc/local-ip-url/releases)
 [![NPM version](https://img.shields.io/npm/v/local-ip-url.svg?style=flat)](https://npmjs.org/package/local-ip-url)
 
 Get current machine IP.
