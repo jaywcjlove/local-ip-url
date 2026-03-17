@@ -1,0 +1,44 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ubuntu:
+    name: Ubuntu Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 24
+          - 20
+          - 18
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install
+      - run: npm run test
+
+  windows: 
+    name: Windows Node.js
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 24
+          - 20
+          - 18
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install
+      - run: npm run test
